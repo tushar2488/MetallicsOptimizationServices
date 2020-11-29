@@ -1,0 +1,146 @@
+1. Chemical Elements:
+Method: Get
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/chemical_element/
+Output:
+[
+    {
+        "id": 1,
+        "name": "AI"
+    },
+    {
+        "id": 2,
+        "name": "C"
+    },
+    {
+        "id": 3,
+        "name": "N"
+    },
+    {
+        "id": 4,
+        "name": "O"
+    }
+]
+===========================================================
+2. All Commodity:
+Method: Get
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/commodity/
+Output:
+[
+    {
+        "id": 11,
+        "name": "Plate & Structural New1",
+        "price": "205.00",
+        "inventory": "1234.00",
+        "chemical_composition": []
+    },
+    {
+        "id": 12,
+        "name": "O",
+        "price": "500.20",
+        "inventory": "302.10",
+        "chemical_composition": []
+    },
+    {
+        "id": 13,
+        "name": "Aluminum",
+        "price": "500.20",
+        "inventory": "302.10",
+        "chemical_composition": [
+            {
+                "element": {
+                    "id": 2,
+                    "name": "C"
+                },
+                "percentage": "34.00"
+            }
+        ]
+    }
+]
+===========================================================
+3. Get Commodity By ID:
+Method: Get
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/get_comodity_details/11/
+Output:
+{
+    "id": 11,
+    "name": "Plate & Structural New1",
+    "price": "205.00",
+    "inventory": "1234.00",
+    "chemical_composition": [
+        {
+            "element": {
+                "id": 1,
+                "name": "AI"
+            },
+            "percentage": "30.00"
+        }
+    ]
+}
+===========================================================
+4. Update Commodity By ID:
+Method: PUT
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/update_comodity_details/
+Input:
+[{
+    "id": 11,
+    "name": "Plate & Structural Updated",
+    "price": 205.00
+}]
+Output:
+[
+    {
+        "id": 11,
+        "name": "Plate & Structural Updated",
+        "price": "205.00",
+        "inventory": "1234.00",
+        "chemical_composition": [
+            {
+                "element": {
+                    "id": 1,
+                    "name": "AI"
+                },
+                "percentage": "30.00"
+            }
+        ]
+    }
+]
+===========================================================
+5. All Composition:
+Method: Get
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/chemical_concentration/
+Output:
+[
+    {
+        "id": 2,
+        "commodity": 11,
+        "element": 1,
+        "percentage": "30.00"
+    },
+    {
+        "id": 3,
+        "commodity": 13,
+        "element": 2,
+        "percentage": "34.00"
+    }
+]
+===========================================================
+6. Remove Composition by ID:
+Method: DELETE
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/remove_chemical_composition/
+Inputs: 
+{
+    "commodity":11,
+    "element":1
+}
+Output:
+{
+    "commodity_id": "11",
+    "element_id": "1",
+    "Message": "Record deleted successfully"
+}
