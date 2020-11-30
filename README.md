@@ -47,8 +47,8 @@ Environment Setup:
   - Create Modals : 1. Chemical Elements 2. Commodity 3. Chemical Composition
   - Add New Chemical Elements & Get/List all Chemical Elements
   - Add new commodity & Get/List all with chemical composition
-  - Add new chemical composition & Get/List all chemical composition
-  - Renmove chemical composition by (elemen_id,commodity_id)
+  - Add new chemical composition & Get/List all chemical composition. It will maintain unknown element and Total Percentage will not cross 100%. If unknown element not exist it will create it.
+  - Renmove chemical composition by (elemen_id,commodity_id). It will maintain unknown element and Total Percentage will not cross 100%
   - Update commodity by id
   - Get Commodity by id
 
