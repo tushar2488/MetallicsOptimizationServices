@@ -144,3 +144,72 @@ Output:
     "element_id": "1",
     "Message": "Record deleted successfully"
 }
+===========================================================
+6. Add Composition by ID:
+Method: DELETE
+User Auth Token: Required
+URL: http://127.0.0.1:8000/api/v1/add_chemical_concentration/
+Inputs: 
+{
+    "commodity": 13,
+    "element": 2,
+    "percentage": 10.00
+}
+Output:
+{
+    "known": "Element add successfully in composition with percentage.",
+    "unknown": "Already Exist. Percentage Updated Successfully."
+}
+Existing Compensession Values:
+{
+    "id": 13,
+    "name": "Aluminum",
+    "price": "500.20",
+    "inventory": "302.10",
+    "chemical_composition": [
+        {
+            "element": {
+                "id": 5,
+                "name": "Unknown"
+            },
+            "percentage": "20.00"
+        },
+        {
+            "element": {
+                "id": 3,
+                "name": "N"
+            },
+            "percentage": "80.00"
+        }
+    ]
+}
+After Add New:
+{
+    "id": 13,
+    "name": "Aluminum",
+    "price": "500.20",
+    "inventory": "302.10",
+    "chemical_composition": [
+        {
+            "element": {
+                "id": 5,
+                "name": "Unknown"
+            },
+            "percentage": "10.00"
+        },
+        {
+            "element": {
+                "id": 3,
+                "name": "N"
+            },
+            "percentage": "80.00"
+        },
+        {
+            "element": {
+                "id": 2,
+                "name": "C"
+            },
+            "percentage": "10.00"
+        }
+    ]
+}

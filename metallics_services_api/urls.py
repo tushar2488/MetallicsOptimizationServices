@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/v1/get_comodity_details/<int:id>/', views.GetComodityDetail.as_view(), name='get_comodity_details'),
     path('api/v1/update_comodity_details/', views.UpdateComodityDetail.as_view(), name='update_comodity_details'),
     path('api/v1/remove_chemical_composition/', views.RemoveChemicalComposition.as_view(), name='remove_chemical_composition'),
+    path('api/v1/add_chemical_concentration/', views.AddChemicalComposition.as_view(), name='add_chemical_concentration'),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api/v1/', include(router.urls)),
 ]
